@@ -1,0 +1,17 @@
+<?php
+function cesar($str,$diraction="encode")
+
+{
+    $strarr = str_split($str);
+    $returnstr= "";
+    if ($diraction=="encode" ) $add=3;
+    else $add=-3;
+    foreach ($strarr as $item){
+        $returnstr .=chr(ord($item)+$add);
+    }
+
+return $returnstr;
+
+}
+echo cesar("dsd");
+echo cesar("gvg", "dcode");

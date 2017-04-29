@@ -1,0 +1,28 @@
+CREATE TABLE bankomat (compassname VARCHAR(8),latitude DOUBLE(11, 9),longitude DOUBLE(11, 9),address VARCHAR(50),PRIMARY KEY (compassname));
+INSERT INTO bankomat (compassname, latitude, longitude, address)
+VALUES
+('CADN0001', 10.000000001, 10.000000001, 'address1'),
+('CADN0002', 15.000000001, 15.000000001, 'address2'),
+('CADN0003', 20.000000001, 20.000000001, 'address3'),
+('CADN0004', 25.000000001, 25.000000001, 'address4'),
+('CADN0005', 30.000000001, 30.000000001, 'address5'),
+('CADN0006', 35.000000001, 35.000000001, 'address6'),
+('CADN0007', 40.000000001, 40.000000001, 'address7'),
+('CADN0008', 45.000000001, 45.000000001, 'address8'),
+('CADN0009', 50.000000001, 50.000000001, 'address9'),
+('CADN0010', 55.000000001, 55.000000001, 'address10'),
+('CADN0011', 60.000000001, 60.000000001, 'address11'),
+('CADN0012', 65.000000001, 65.000000001, 'address12'),
+('CADN0013', 70.000000001, 70.000000001, 'address13'),
+('CADN0014', 75.000000001, 75.000000001, 'address14'),
+('CADN0015', 80.000000001, 80.000000001, 'address15'),
+('CADN0016', 85.000000001, 85.000000001, 'address16'),
+('CADN0017', 90.000000001, 90.000000001, 'address17'),
+('CADN0018', 95.000000001, 95.000000001, 'address18'),
+('CADN0019', 97.000000001, 97.000000001, 'address19'),
+('CADN0020', 99.000000001, 99.000000001, 'address20');
+SELECT * FROM bankomat GROUP BY ADRESS
+ SELECT compassname, ( 6371 * acos( cos( radians(50.280848) ) * cos( radians( latitude ) )
+  * cos( radians( longitude ) - radians(30.445011) ) + sin( radians(50.280848) ) * sin( radians( latitude ) ) ) ) AS distance
+FROM bankomat
+ HAVING distance < 10000 ORDER BY distance LIMIT 0 , 5;
